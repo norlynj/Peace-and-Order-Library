@@ -38,43 +38,44 @@ public class Library {
             System.out.printf(format, "(T) Get total", "(Q) Quit");
 
             choice = in.nextLine().toUpperCase();
-
-            //so that getInput would no longer show if user wants to get total or quit
-            if(choice.equals("Q")){
-                System.exit(0);
-            }
-            if(!choice.equals("T")){
-                getInput();
-            }
-
             switch(choice){
                 case "A":
+                    getInput();
                     add(callNum, index);
                     break;
                 case "X":
+                    getInput();
                     remove(callNum, index);
                     break;
                 case "S":
+                    getInput();
                     listSize(index);
                     break;
                 case "E":
+                    getInput();
                     listIsEmpty(index);
                     break;
                 case "R":
+                    getInput();
                     getRightCN(callNum, index);
                     break;
                 case "L":
+                    getInput();
                     getLeftCN(callNum, index);
                     break;
                 case "C":
+                    getInput();
                     getCN(callNum, index);
                     break;
                 case "T":
                     getTotal();
                     break;
                 case "D":
+                    getInput();
                     displayList(callNum, index);
                     break;
+                case "Q":
+                    System.exit(0);
                 default:
                     System.out.println("You pressed the wrong key!");
             }
@@ -99,14 +100,12 @@ public class Library {
     //retrieve the first digit of a number to know what index to insert
     public int firstNum(int x){
         //if x < 100, just return 0
+        if(x < 0 || x > 999) {
+            System.out.println("Sorry, call number invalid.");
+            showMenu();
+        }
         if(x < 100) {
             return 0;
-        }
-        //since we're only accepting 3 integers
-        if(x > 999) {
-            System.out.println("Sorry, call number invalid. " +
-                    "Only input the first three (3) numbers of the book.\n");
-            showMenu();
         }
 
         while(x > 9){
@@ -115,24 +114,22 @@ public class Library {
         return x;
     }
 
-    //insert a book given the three numbers of the assigned call number
+    //inserts the book in the given index
     public void add(int cn, int i){
         deweyDecimalSystem[i].callNumbers.addElement(cn);
         System.out.println("\n");
     }
 
-    //asks user for a call number and removes element
+    //removes element
     public void remove(int cn, int i){
         deweyDecimalSystem[i].callNumbers.removeElement(cn);
         System.out.println("\n");
-
     }
 
 
-    // and gets the list size of that certain classification
+    //gets the list size of that certain classification
     public void listSize(int i){
         int size = deweyDecimalSystem[i].callNumbers.size();
-
         System.out.println("Size of the list is " + size);
         System.out.println("\n");
     }
@@ -140,20 +137,17 @@ public class Library {
     //checks if list is empty
     public void listIsEmpty(int i){
         boolean empty = deweyDecimalSystem[i].callNumbers.isEmpty();
-
         if(empty){
             System.out.println("List is empty.\n");
         }
         else {
             System.out.println("List is not empty.\n");
         }
-
         System.out.println("\n");
     }
 
     //shows the call number to the right
     public void getRightCN(int cn, int i){
-
         int rightCN = deweyDecimalSystem[i].callNumbers.getRightCallNumber(cn);
 
         if(rightCN != -1){
@@ -162,25 +156,19 @@ public class Library {
         else{
             System.out.println("The call number to the right is null");
         }
-
         System.out.println("\n");
-
     }
 
     //shows the call number to the left
     public void getLeftCN(int cn, int i){
-
         int leftCN = deweyDecimalSystem[i].callNumbers.getLeftCallNumber(cn);
-
         if(leftCN != -1){
             System.out.println("The call number to the left is "+ leftCN);
         }
         else{
             System.out.println("The call number to the left is null");
         }
-
         System.out.println("\n");
-
     }
 
     //checks if it exists in the list
