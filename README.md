@@ -5,7 +5,7 @@ Each index in the array corresponds to the Dewey Decimal call number classificat
 corresponds to 000, index 1 corresponds to 100, and so on.
 
 
-##Technical Requirement Summary
+## Technical Requirement Summary
 * The solution shall insert a book using its call number where the first digit of the 
 call number indicates the classification it falls within
 * The solution shall enable the user to retrieve the call number assigned to its left 
@@ -18,7 +18,7 @@ get the total number of lists inserted.
 entire list created
 
 
-##Java class and Purpose
+## Java class and Purpose
 
 Ordered Collection (interface)
 *The OrderedCollection interface defines the behavior of call numbers.
