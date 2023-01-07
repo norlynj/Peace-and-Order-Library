@@ -1,5 +1,5 @@
 # Peace-and-Order-Library
-_Solution to CMSC 122 Lab Exercise_
+_Solution to CMSC 122 DSA Lab Exercise_
 
 This program maintains an array with a maximum of 10 elements where each element is a linked list. 
 Each index in the array corresponds to the Dewey Decimal call number classification e.g index 0 
