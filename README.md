@@ -21,7 +21,7 @@ entire list created
 ## Java class and Purpose
 
 Ordered Collection (interface)
-*The OrderedCollection interface defines the behavior of call numbers.
+* The OrderedCollection interface defines the behavior of call numbers.
 
 CallNumbers 
 * The CallNumbers class implements the methods defined in the interface. 
